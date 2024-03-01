@@ -16,7 +16,7 @@ export class InvertedIndex {
           FileObject.fileName
         );
 
-        tokenizedArray.forEach((word: string) => {
+        tokenizedArray.forEach(async (word: string) => {
           if (!this.lexicon?.includes(word) && !stopWords.includes(word)) {
             this.lexicon?.push(word);
           }
@@ -37,6 +37,27 @@ export class InvertedIndex {
     );
 
     return this.table;
+  }
+
+  runQuery(query: string) {
+    const queryArr = query.split(' AND ');
+     let docArr =new Set();
+     console.log(queryArr);
+    queryArr.map((word:string) => {
+
+        const queryWord = PreProcessor.queryPreProcess(word);
+
+        let index = this.table.findIndex((obj) => obj.word === queryWord[0]);
+        this.table[index].postings.map((posting) => {
+            
+            docArr.add(posting);
+            
+            
+        })
+        });
+        console.log(docArr);
+
+    console.log(queryArr);
   }
 
   async returnIndex() {

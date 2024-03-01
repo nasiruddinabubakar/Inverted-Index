@@ -53,6 +53,10 @@ export const stopWords = [
 ];
 
 export const testArr = [
-  { fileName: './ResearchPapers/112.txt', docID: 1 },
-  { fileName: './ResearchPapers/113.txt', docID: 2 },
+  { fileName: './ResearchPapers/1.txt', docID: 1 },
+  { fileName: './ResearchPapers/2.txt', docID: 2 },
+  // { fileName: './ResearchPapers/4.txt', docID: 2 },
+  // { fileName: './ResearchPapers/8.txt', docID: 2 },
+  // { fileName: './ResearchPapers/12.txt', docID: 2 },
+  // { fileName: './ResearchPapers/13.txt', docID: 2 },
 ];
