@@ -1,5 +1,5 @@
 
-# Inverted Index Builder
+# Inverted Index
 
 The Inverted Index Builder is a tool designed to create an inverted index from a collection of documents. This index is useful for various information retrieval tasks, such as searching for documents containing specific words or phrases.
 
@@ -17,7 +17,7 @@ To use the Inverted Index Builder, follow these steps:
 1. Clone this repository to your local machine:
 
 ```
-git clone https://github.com/nasiruddinabubakar/inverted-index-builder.git
+git clone https://github.com/nasiruddinabubakar/inverted-index.git
 ```
 
 2. Install the dependencies:
