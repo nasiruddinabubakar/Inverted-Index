@@ -40,24 +40,26 @@ export class InvertedIndex {
   }
 
   runQuery(query: string) {
-    const queryArr = query.split(' AND ');
+    // const queryArr = query.split(' AND ');
      let docArr =new Set();
-     console.log(queryArr);
-    queryArr.map((word:string) => {
+    //  console.log(queryArr);
+    // queryArr.map((word:string) => {
 
-        const queryWord = PreProcessor.queryPreProcess(word);
-
-        let index = this.table.findIndex((obj) => obj.word === queryWord[0]);
-        this.table[index].postings.map((posting) => {
+        const queryWord = PreProcessor.queryPreProcess(query);
+      console.log(queryWord);
+        let index = this.table.findIndex((obj) => obj.word === query);
+        let word = this.table.find((obj) => obj.word === query);
+        console.log(word)
+        this.table[index]?.postings?.map((posting) => {
             
             docArr.add(posting);
             
             
         })
-        });
+        // });
         console.log(docArr);
 
-    console.log(queryArr);
+    // console.log(queryArr);
   }
 
   async returnIndex() {

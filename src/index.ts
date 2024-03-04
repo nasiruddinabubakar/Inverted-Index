@@ -4,6 +4,7 @@ const invertedIndex = new InvertedIndex();
 
 invertedIndex.BuildIndex().then((res) => {
 //   console.log(res);
-invertedIndex.runQuery('feature AND selection');
+  console.log(res.length);
+invertedIndex.runQuery('transformer');
 });
 

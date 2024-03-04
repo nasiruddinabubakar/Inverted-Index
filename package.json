@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.3",
+    "natural": "^6.10.5",
     "porter-stemmer": "^0.9.1"
   },
   "devDependencies": {
