@@ -5,6 +5,6 @@ const invertedIndex = new InvertedIndex();
 invertedIndex.BuildIndex().then((res) => {
   // console.log(res);
   console.log(res.length);
-  console.log(invertedIndex.parseQuery('transformer AND model'));
+  console.log(invertedIndex.runOrQeury('transformer OR model'));
 });
 

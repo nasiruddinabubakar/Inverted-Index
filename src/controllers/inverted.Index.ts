@@ -39,7 +39,7 @@ export class InvertedIndex {
 
     return this.table;
 }
-async parseQuery(query: string) {
+async runAndQuery(query: string) {
   // Tokenization
   const queryArr = query.split(' AND ');
 
@@ -71,6 +71,30 @@ async parseQuery(query: string) {
   // Convert docArr to an array and return
   return docArr === null ? [] : docArr;
 }
+async runOrQeury(query: string) {
+  // Tokenization
+  const queryArr = query.split(' OR ');
+
+  // Initialize docArr with an empty array
+  let docArr: number[] = [];
+
+  // Parsing and Query Execution
+  for (const word of queryArr) {
+      const queryWord = PreProcessor.PreProcess(word);
+
+      let index = this.table.findIndex((obj) => obj.word === queryWord);
+
+      if (index !== -1) {
+          const postings = this.table[index].postings;
+
+          // Merge the current postings with docArr to get the union
+          docArr = Array.from(new Set([...docArr, ...postings]));
+      }
+  }
+
+  return docArr.sort();
+}
+
 
 
   async returnIndex() {
