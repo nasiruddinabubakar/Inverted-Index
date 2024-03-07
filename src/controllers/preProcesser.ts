@@ -16,12 +16,14 @@ export class PreProcessor {
       .replace(/[^a-zA-Z]/g, '') // Remove non-alphabetic characters
       .toLowerCase(); // Convert to lowercase
 
-    if (processedWord.includes(' ') || processedWord.length < 3) {
-      return processedWord;
+      if (processedWord.length <= 2 || natural.stopwords.includes(processedWord)) {
+        return null; // Discard short words and common stop words
     }
-
-    return porterStemmer.stem(processedWord);
-
+    
+    // Apply Porter Stemming
+    const stemmedWord = porterStemmer.stem(processedWord);
+    
+    return stemmedWord;
     // return porterStemmer.stem(processedWord);
   };
 
@@ -32,8 +34,12 @@ export class PreProcessor {
     let processedWords: string[] = [];
 
     words.map((word: string) => {
-      processedWords.push(PreProcessor.PreProcess(word));
+      const temp = PreProcessor.PreProcess(word);
+      if (!temp) {
 
+      } else {
+        processedWords.push(temp);
+      }
     });
     return processedWords;
     // Do something with the processed words here
