@@ -16,13 +16,13 @@ export class PreProcessor {
       .replace(/[^a-zA-Z]/g, '') // Remove non-alphabetic characters
       .toLowerCase(); // Convert to lowercase
 
-      if (processedWord.length <= 2 || natural.stopwords.includes(processedWord)) {
+      if (processedWord.length <= 2 || natural.stopwords.includes(processedWord) ) {
         return null; // Discard short words and common stop words
     }
     
     // Apply Porter Stemming
     const stemmedWord = porterStemmer.stem(processedWord);
-    
+    if (stemmedWord.length >= 13) return null; // Discard long words  
     return stemmedWord;
     // return porterStemmer.stem(processedWord);
   };

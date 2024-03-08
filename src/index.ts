@@ -1,10 +1,13 @@
 import { InvertedIndex } from './controllers/inverted.Index';
 
-const invertedIndex = new InvertedIndex();
-
-invertedIndex.BuildIndex().then((res) => {
+async function main() {
+  const invertedIndex = new InvertedIndex();
+  const res = await invertedIndex.BuildIndex();
   // console.log(res);
-  console.log(res.length);
-  console.log(invertedIndex.runOrQeury('transformer OR model'));
-});
+const result= await invertedIndex.runAndQuery('transformer AND model');
+console.log(result);
+}
+
+main();
+
 
