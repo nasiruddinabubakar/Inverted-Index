@@ -18,7 +18,7 @@ export class PreProcessor {
       .replace(/[^a-zA-Z]/g, '') // Remove non-alphabetic characters
       .toLowerCase(); // Convert to lowercase
 
-      if (processedWord.length <= 2 || stopWords.includes(processedWord)) {
+      if (processedWord.length <= 2) {
         return null; // Discard short words and common stop words
     }
     
