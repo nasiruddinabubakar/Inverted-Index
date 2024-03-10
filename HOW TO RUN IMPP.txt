@@ -1,3 +1,4 @@
+https://github.com/nasiruddinabubakar/Inverted-Index    <-- for reference if something isnt working
 Inverted Index Project Documentation
 This project implements an inverted index and a positional index in TypeScript, designed to efficiently handle queries over a collection of text documents. The project is primarily aimed at indexing and querying research papers, but it can be adapted for various text-based applications.
 
