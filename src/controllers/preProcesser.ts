@@ -1,3 +1,5 @@
+import { stopWords } from "../utils/filesArray";
+
 const fs = require('fs');
 const readline = require('readline');
 const { promisify } = require('util');
@@ -16,7 +18,7 @@ export class PreProcessor {
       .replace(/[^a-zA-Z]/g, '') // Remove non-alphabetic characters
       .toLowerCase(); // Convert to lowercase
 
-      if (processedWord.length <= 2 || natural.stopwords.includes(processedWord) ) {
+      if (processedWord.length <= 2  ) {
         return null; // Discard short words and common stop words
     }
     
